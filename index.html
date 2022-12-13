@@ -36,7 +36,7 @@
     </div>
   </nav>
 
-  <article class="library container">
+  <article class="library container hidden-article">
     <section class="read">
       <h2>Read</h2>
       <div class="shelf">
@@ -86,19 +86,19 @@
   </article>
 
   <form class="add-book" action="new-book.html" type="GET">
-    <div>
+    <div class="title">
       <label for="title">Title</label>
       <input type="text" name="title" id="title" placeholder="Moby Dick" required>
     </div>
-    <div>
+    <div class="author">
       <label for="author">Author</label>
       <input type="text" name="author" id="author" placeholder="Herman Melville">
     </div>
-    <div>
+    <div class="pages">
       <label for="pages">Pages</label>
       <input type="number" name="Pages" id="pages" placeholder="427" min="1" step="5">
     </div>
-    <button type="submit">Add Book</button>
+    <button class="add-book-btn" type="submit">Add Book</button>
   </form>
 </body>
 </html>
