@@ -64,7 +64,7 @@
     </section>
     <section class="not-read">
       <h2>Not Read</h2>
-      <div class="shelf">
+      <div class="shelf" id="not-read-shelf">
         <div class="book">
           <p class="title">The Hobbit</p>
           <input class="checkmark" type="checkbox">
@@ -81,18 +81,18 @@
     </section>
   </article>
   <div id='form-root'>
-    <form class="add-book hidden" action="new-book.html" type="GET">
+    <form class="add-book hidden">
       <div class="form-title">
         <label for="title">Title *</label>
         <input type="text" name="title" id="title" placeholder="Moby Dick" required>
       </div>
       <div class="author">
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author" placeholder="Herman Melville">
+        <label for="author">Author *</label>
+        <input type="text" name="author" id="author" placeholder="Herman Melville" required>
       </div>
       <div class="pages">
         <label for="pages">Pages</label>
-        <input type="number" name="Pages" id="pages" placeholder="427" min="1" step="5">
+        <input type="number" name="Pages" id="pages" placeholder="427" min="1">
       </div>
       <button class="add-book-btn" type="submit">Add Book</button>
     </form>
