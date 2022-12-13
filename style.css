@@ -149,6 +149,10 @@ form input {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
 }
 
+form input:focus {
+  outline: 2px solid #2563eb;
+}
+
 .add-book-btn {
   align-self: center;
   justify-self: center;
