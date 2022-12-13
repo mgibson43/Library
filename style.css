@@ -20,6 +20,11 @@ h2 {
   margin-bottom: 0.4rem;
 }
 
+p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .container {
   width: 100vw;
   max-width: 1600px;
@@ -64,11 +69,14 @@ h2 {
   width: 13rem;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
   padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .book:hover {
   transform: scale(105%);
-  cursor: pointer;
 }
 
 .btn {
@@ -80,4 +88,11 @@ h2 {
 .btn:hover {
   cursor: pointer;
   transform: scale(120%);
+}
+
+input[type='checkbox'] {
+  align-self: flex-end;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
 }
