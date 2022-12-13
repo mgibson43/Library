@@ -10,8 +10,10 @@ html {
 }
 
 nav {
-  background-color: #78716c;
+  background-color: #57534e;
   margin-bottom: 2rem;
+  width: 100vw;
+  min-width: 100%;
 }
 
 h2 {
@@ -30,29 +32,52 @@ h2 {
   justify-content: flex-end;
   gap: 1rem;
 
-  padding-right: 3rem;
+  padding-right: 5.4rem;
   height: 4rem;
-  width: 100vw;
+ 
 }
 
 .library {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 4rem;
-  
+  padding-left: 2rem;
+}
+
+.read {
   padding-left: 4rem;
 }
 
+.not-read {
+  padding-right: 4rem;
+}
+
+
 .shelf {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
   row-gap: 4rem;
 }
 
 .book {
   height: 18rem;
-  width: 14rem;
+  width: 13rem;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-
   padding: 1rem;
+}
+
+.book:hover {
+  transform: scale(105%);
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  background-color: #57534e;
+  fill: #f5f5f4;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(120%);
 }
