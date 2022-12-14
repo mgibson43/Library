@@ -201,6 +201,7 @@ form input:focus {
   transform: translate(-50%, -50%);
   z-index: 10;
   color: #222;
+  cursor: default;
 }
 
 [data-read="false"] .hidden-read {
@@ -209,4 +210,5 @@ form input:focus {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+  cursor: default;
 }
