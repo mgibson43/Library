@@ -11,8 +11,7 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const pages = document.getElementById('pages');
 const addBookBtn = document.querySelector('.add-book-btn');
-const notReadShelf = document.getElementById('not-read-shelf');
-const readShelf = document.getElementById('read-shelf')
+const shelf = document.getElementById('shelf');
 
 function Book(title, author, pages) {
   this.title = title;
@@ -65,29 +64,35 @@ function createBookCards(book) {
   pages.classList.add('page-number');
   book.pages > 0 ? pages.textContent = `${book.pages} p` : pages.textContent = '';
 
-  const input = document.createElement('input');
-  input.classList.add('checkmark');
-  input.type = 'checkbox';
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('delete');
+  deleteBtn.innerHTML = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+  <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />`;
 
   inputDiv.appendChild(pages);
-  inputDiv.appendChild(input);
+  inputDiv.appendChild(deleteBtn);
  
   bookCard.appendChild(div);
   bookCard.appendChild(inputDiv);
 
-  book.status === true ? readShelf.appendChild(bookCard) : notReadShelf.appendChild(bookCard);
+  shelf.appendChild(bookCard);
 }
 
 function addBooksToLibrary() {
-  notReadShelf.innerHTML = readShelf.innerHTML = '';
+  shelf.innerHTML = '';
   myLibrary.forEach(book => createBookCards(book));
   closeForm();
+  console.log(myLibrary);
 }
 
 function addBook(e) {
   e.preventDefault();
   myLibrary.push(new Book(title.value, author.value, pages.value));
   addBooksToLibrary();
+}
+
+function notReadToRead() {
+  const readBooks = readShelf.childNodes;
 }
 
 addBtn.addEventListener('click', openForm);

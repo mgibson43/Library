@@ -16,6 +16,10 @@ nav {
   min-width: 100%;
 }
 
+h1 {
+  color: #f5f5f4;
+}
+
 h2 {
   margin-bottom: 0.4rem;
 }
@@ -38,39 +42,27 @@ label {
 .btns {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 2rem;
+  justify-content: space-between;
 
-  padding-right: 5.4rem;
+  padding: 0 5rem;
   height: 4rem;
- 
 }
 
 .library {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   column-gap: 4rem;
-  padding-left: 2rem;
+  padding: 0 5rem;
 }
-
-.read {
-  padding-left: 4rem;
-}
-
-.not-read {
-  padding-right: 4rem;
-}
-
 
 .shelf {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
-  row-gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  row-gap: 2rem;
 }
 
 .book {
-  height: 18rem;
-  width: 13rem;
+  height: 24rem;
+  width: 16rem;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
   padding: 1rem;
 
@@ -87,6 +79,7 @@ label {
   border: none;
   background-color: #57534e;
   fill: #f5f5f4;
+  padding-right: 1rem;
 }
 
 .btn:hover {
@@ -99,10 +92,15 @@ label {
   justify-content: space-between;
 }
 
-input[type='checkbox'] {
+.delete {
+  border: none;
+  background-color: #fff;
+  fill: #57534e;
+}
+
+.delete:hover {
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  transform: scale(120%);
 }
 
 .add-book {

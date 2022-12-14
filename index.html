@@ -12,49 +12,34 @@
 <body>
   <nav>
     <div class="container btns">
+      <h1>My Library</h1>
       <button class="new btn">
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
           <path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" />
         </svg>
       </button>
-      <button class="delete btn">
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M22.54 16.88L21.12 15.47L19 17.59L16.88 15.47L15.47 16.88L17.59 19L15.47 21.12L16.88 22.54L19 20.41L21.12 22.54L22.54 21.12L20.41 19L22.54 16.88Z" />
-        </svg>
-      </button>
-      <button class="uncheck btn">
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path d="M8,10V13H14V18H8V21L2,15.5L8,10M22,8.5L16,3V6H10V11H16V14L22,8.5Z" />
-      </svg>
-      </svg>
-      </button>
-      
     </div>
   </nav>
 
   <article class="library container">
-    <section class="read">
-      <h2>Read</h2>
-      <div class="shelf" id="read-shelf">
-        
-      </div>
-    </section>
-    <section class="not-read">
-      <h2>Not Read</h2>
-      <div class="shelf" id="not-read-shelf">
-        <div class="book">
-          <div>
-            <p class="title">The Hobbit</p>
-            <p class="writer">by J.R.R. Tolkein</p>
-          </div>
-          <div class="input-container">
-            <p class="page-number">427 pages</p>
-            <input class="checkmark" type="checkbox">
-          </div>
+    <div class="shelf" id="shelf">
+      <div class="book">
+        <div>
+          <p class="title">The Hobbit</p>
+          <p class="writer">by J.R.R. Tolkein</p>
+        </div>
+        <div class="input-container">
+          <p class="page-number">427 pages</p>
+          <button class="delete">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
   </article>
+
   <div id='form-root'>
     <form class="add-book hidden">
       <div class="form-title">
