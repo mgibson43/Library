@@ -66,6 +66,10 @@ function createBookCards(book, i) {
   writer.classList.add('writer');
   writer.textContent = `by ${book.author}`;
 
+  const hiddenRead = document.createElement('h2');
+  hiddenRead.classList.add('hidden-read');
+  hiddenRead.innerHTML = 'Read';
+
   div.appendChild(title);
   div.appendChild(writer);
 
@@ -85,6 +89,7 @@ function createBookCards(book, i) {
   inputDiv.appendChild(deleteBtn);
  
   bookCard.appendChild(div);
+  bookCard.appendChild(hiddenRead);
   bookCard.appendChild(inputDiv);
 
   shelf.appendChild(bookCard);
