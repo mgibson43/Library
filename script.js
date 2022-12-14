@@ -17,11 +17,19 @@ function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.status = false;
+  this.read = 'false';
 }
 
-Book.prototype.changeStatus = function() {
-  this.status === false ? this.status = true : this.status = false;
+Book.prototype.changeStatus = function(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  if (this.dataset.read == 'true') {
+    this.dataset.read = 'false';
+    myLibrary[this.dataset.index].read = 'false';
+  } else  {
+    this.dataset.read = 'true';
+    myLibrary[this.dataset.index].read = 'true';
+  }
 }
 
 function openForm(e) {
@@ -40,9 +48,13 @@ function formClick(e) {
   e.stopPropagation();
 }
 
-function createBookCards(book) {
+function createBookCards(book, i) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book');
+  bookCard.dataset.index = i;
+  bookCard.dataset.read = book.read;
+  bookCard.addEventListener('click', book.changeStatus);
+
 
   const div = document.createElement('div');
 
@@ -80,19 +92,24 @@ function createBookCards(book) {
 
 function addBooksToLibrary() {
   shelf.innerHTML = '';
-  myLibrary.forEach(book => createBookCards(book));
+  myLibrary.forEach((book, i) => createBookCards(book, i));
+
+  const removeBookBtns = document.querySelectorAll('.delete');
+  removeBookBtns.forEach(btn => btn.addEventListener('click', removeBook));
   closeForm();
-  console.log(myLibrary);
 }
 
 function addBook(e) {
   e.preventDefault();
+  if (title.value =='' || author.value == '') return;
   myLibrary.push(new Book(title.value, author.value, pages.value));
   addBooksToLibrary();
 }
 
-function notReadToRead() {
-  const readBooks = readShelf.childNodes;
+function removeBook(e) {
+  e.preventDefault();
+  shelf.removeChild(this.parentNode.parentNode);
+  myLibrary.splice(this.parentNode.parentNode.dataset.index, 1);
 }
 
 addBtn.addEventListener('click', openForm);
