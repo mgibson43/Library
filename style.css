@@ -94,8 +94,12 @@ label {
   transform: scale(120%);
 }
 
+.input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 input[type='checkbox'] {
-  align-self: flex-end;
   cursor: pointer;
   height: 25px;
   width: 25px;
@@ -116,6 +120,15 @@ input[type='checkbox'] {
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.writer,
+.page-number {
+  font-size: 14px;
 }
 
 .form-title,

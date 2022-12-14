@@ -1,7 +1,6 @@
 'use strict'
 
-let read = [];
-let notRead = [];
+let myLibrary = [];
 const addBtn = document.querySelector('.new');
 const form = document.querySelector('.add-book');
 const formRoot = document.getElementById('form-root');
@@ -12,7 +11,8 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const pages = document.getElementById('pages');
 const addBookBtn = document.querySelector('.add-book-btn');
-const shelf = document.getElementById('not-read-shelf');
+const notReadShelf = document.getElementById('not-read-shelf');
+const readShelf = document.getElementById('read-shelf')
 
 function Book(title, author, pages) {
   this.title = title;
@@ -42,27 +42,51 @@ function formClick(e) {
 }
 
 function createBookCards(book) {
+  const bookCard = document.createElement('div');
+  bookCard.classList.add('book');
+
   const div = document.createElement('div');
-  div.classList.add('book');
-  const p = document.createElement('p');
-  p.classList.add('title');
-  p.textContent = book.title;
+
+  const title = document.createElement('p');
+  title.classList.add('title');
+  title.textContent = book.title;
+
+  const writer = document.createElement('p');
+  writer.classList.add('writer');
+  writer.textContent = `by ${book.author}`;
+
+  div.appendChild(title);
+  div.appendChild(writer);
+
+  const inputDiv = document.createElement('div');
+  inputDiv.classList.add('input-container');
+
+  const pages = document.createElement('p');
+  pages.classList.add('page-number');
+  book.pages > 0 ? pages.textContent = `${book.pages} p` : pages.textContent = '';
+
   const input = document.createElement('input');
   input.classList.add('checkmark');
   input.type = 'checkbox';
-  div.appendChild(p);
-  div.appendChild(input);
-  shelf.appendChild(div);
+
+  inputDiv.appendChild(pages);
+  inputDiv.appendChild(input);
+ 
+  bookCard.appendChild(div);
+  bookCard.appendChild(inputDiv);
+
+  book.status === true ? readShelf.appendChild(bookCard) : notReadShelf.appendChild(bookCard);
 }
 
 function addBooksToLibrary() {
-  notRead.forEach(book => createBookCards(book));
+  notReadShelf.innerHTML = readShelf.innerHTML = '';
+  myLibrary.forEach(book => createBookCards(book));
   closeForm();
 }
 
 function addBook(e) {
   e.preventDefault();
-  notRead.push(new Book(title.value, author.value, pages.value));
+  myLibrary.push(new Book(title.value, author.value, pages.value));
   addBooksToLibrary();
 }
 
@@ -73,8 +97,3 @@ form.addEventListener('click', formClick);
 formRoot.closest('body').addEventListener('click', closeForm);
 
 addBookBtn.addEventListener('click', addBook);
-
-
-
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 295);
-console.log(theHobbit);
