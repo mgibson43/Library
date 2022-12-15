@@ -10,6 +10,11 @@ html {
   color: #333;
 }
 
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
 nav {
   background-color: #57534e;
   margin-bottom: 2rem;

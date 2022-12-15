@@ -5,7 +5,6 @@ const addBtn = document.querySelector('.new');
 const form = document.querySelector('.add-book');
 const formRoot = document.getElementById('form-root');
 const container = document.querySelectorAll('.container');
-const body = document.querySelector('body');
 const hidden = document.querySelector('hidden');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
@@ -113,6 +112,7 @@ function addBook(e) {
 
 function removeBook(e) {
   e.preventDefault();
+  e.stopPropagation();
   shelf.removeChild(this.parentNode.parentNode);
   myLibrary.splice(this.parentNode.parentNode.dataset.index, 1);
 }
