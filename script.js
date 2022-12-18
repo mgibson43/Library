@@ -37,7 +37,7 @@ class Book {
     return this.bookRead;
   }
 
-  static changeStatus(e) {
+  changeStatus(e) {
     e.stopPropagation();
     e.preventDefault();
     if (this.dataset.read == 'true') {
