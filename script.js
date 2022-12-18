@@ -12,22 +12,41 @@ const pages = document.getElementById('pages');
 const addBookBtn = document.querySelector('.add-book-btn');
 const shelf = document.getElementById('shelf');
 
-function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = 'false';
-}
 
-Book.prototype.changeStatus = function(e) {
-  e.stopPropagation();
-  e.preventDefault();
-  if (this.dataset.read == 'true') {
-    this.dataset.read = 'false';
-    myLibrary[this.dataset.index].read = 'false';
-  } else  {
-    this.dataset.read = 'true';
-    myLibrary[this.dataset.index].read = 'true';
+class Book {
+  constructor(title, author, pages) {
+    this.bookTitle = title;
+    this.bookAuthor = author;
+    this.bookPages = pages;
+    this.bookRead = 'false';
+  }
+
+  get title() {
+    return this.bookTitle;
+  }
+
+  get author() {
+    return this.bookAuthor;
+  }
+
+  get pages() {
+    return this.bookPages;
+  }
+
+  get read() {
+    return this.bookRead;
+  }
+
+  static changeStatus(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    if (this.dataset.read == 'true') {
+      this.dataset.read = 'false';
+      myLibrary[this.dataset.index].read = 'false';
+    } else  {
+      this.dataset.read = 'true';
+      myLibrary[this.dataset.index].read = 'true';
+    }
   }
 }
 
@@ -51,7 +70,7 @@ function createBookCards(book, i) {
   const bookCard = document.createElement('div');
   bookCard.classList.add('book');
   bookCard.dataset.index = i;
-  bookCard.dataset.read = book.read;
+  bookCard.dataset.read = book.bookRead;
   bookCard.addEventListener('click', book.changeStatus);
 
 
@@ -59,11 +78,11 @@ function createBookCards(book, i) {
 
   const title = document.createElement('p');
   title.classList.add('title');
-  title.textContent = book.title;
+  title.textContent = book.bookTitle;
 
   const writer = document.createElement('p');
   writer.classList.add('writer');
-  writer.textContent = `by ${book.author}`;
+  writer.textContent = `by ${book.bookAuthor}`;
 
   const hiddenRead = document.createElement('h2');
   hiddenRead.classList.add('hidden-read');
@@ -77,7 +96,7 @@ function createBookCards(book, i) {
 
   const pages = document.createElement('p');
   pages.classList.add('page-number');
-  book.pages > 0 ? pages.textContent = `${book.pages} p` : pages.textContent = '';
+  book.bookPages > 0 ? pages.textContent = `${book.bookPages} p` : pages.textContent = '';
 
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('delete');
@@ -124,3 +143,6 @@ form.addEventListener('click', formClick);
 formRoot.closest('body').addEventListener('click', closeForm);
 
 addBookBtn.addEventListener('click', addBook);
+
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkein', 432);
+console.log(theHobbit);
